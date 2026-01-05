@@ -22,54 +22,54 @@ import {
 } from "@/components/ui/card";
 
 const chartData = [
-  { month: "January", desktop: 186, mobile: 80 },
-  { month: "February", desktop: 305, mobile: 200 },
-  { month: "March", desktop: 237, mobile: 120 },
-  { month: "April", desktop: 73, mobile: 190 },
-  { month: "May", desktop: 209, mobile: 130 },
-  { month: "June", desktop: 214, mobile: 140 },
+  { month: "January", clothes: 186, cosmetics: 80 },
+  { month: "February", clothes: 305, cosmetics: 200 },
+  { month: "March", clothes: 237, cosmetics: 120 },
+  { month: "April", clothes: 73, cosmetics: 190 },
+  { month: "May", clothes: 209, cosmetics: 130 },
+  { month: "June", clothes: 214, cosmetics: 140 },
 ];
 
 const chartConfig = {
-  desktop: {
-    label: "Desktop",
+  clothes: {
+    label: "clothes",
     color: "#A71B79",
   },
-  mobile: {
-    label: "Mobile",
+  cosmetics: {
+    label: "cosmetics",
     color: "#E0C013",
   },
 };
 
 const chartData2 = [
-  { browser: "chrome", visitors: 275, fill: "var(--color-chrome)" },
-  { browser: "safari", visitors: 200, fill: "var(--color-safari)" },
-  { browser: "firefox", visitors: 187, fill: "var(--color-firefox)" },
-  { browser: "edge", visitors: 173, fill: "var(--color-edge)" },
-  { browser: "other", visitors: 90, fill: "var(--color-other)" },
+  { browser: "social_media", visitors: 275, fill: "var(--color-social_media)" },
+  { browser: "search_engine", visitors: 200, fill: "var(--color-search_engine)" },
+  { browser: "content_marketing", visitors: 187, fill: "var(--color-content_marketing)" },
+  { browser: "email_marketing", visitors: 173, fill: "var(--color-email_marketing)" },
+  { browser: "affiliate", visitors: 90, fill: "var(--color-affiliate)" },
 ];
 const chartConfig2 = {
   visitors: {
     label: "Visitors",
   },
-  chrome: {
-    label: "Chrome",
+  social_media: {
+    label: "social_media",
     color: "var(--chart-1)",
   },
-  safari: {
-    label: "Safari",
+  search_engine: {
+    label: "search_engine",
     color: "#5AC8DA",
   },
-  firefox: {
-    label: "Firefox",
+  content_marketing: {
+    label: "content_marketing",
     color: "#A71B79",
   },
-  edge: {
-    label: "Edge",
+  email_marketing: {
+    label: "email_marketing",
     color: "#E0C013",
   },
-  other: {
-    label: "Other",
+  affiliate: {
+    label: "affiliate",
     color: "var(--chart-5)",
   },
 };
@@ -77,16 +77,16 @@ const chartConfig2 = {
 import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from "recharts";
 
 const chartData3 = [
-  { month: "January", desktop: 186 },
-  { month: "February", desktop: 305 },
-  { month: "March", desktop: 237 },
-  { month: "April", desktop: 273 },
-  { month: "May", desktop: 209 },
-  { month: "June", desktop: 214 },
+  { month: "January", clothes: 186 },
+  { month: "February", clothes: 305 },
+  { month: "March", clothes: 237 },
+  { month: "April", clothes: 273 },
+  { month: "May", clothes: 209 },
+  { month: "June", clothes: 214 },
 ];
 const chartConfig3 = {
-  desktop: {
-    label: "Desktop",
+  clothes: {
+    label: "clothes",
     color: "#A71B79",
   },
 };
@@ -95,7 +95,7 @@ export function DashBoard() {
   return (
     <ChartContainer config={chartConfig} className="min-h-50 w-full">
       <h1 className="text-xl md:text-2xl font-bold text-center md:text-left">
-        VELVE Analysis Dashboard
+        VELVE' Analysis Dashboard
       </h1>
       <BarChart accessibilityLayer data={chartData}>
         <CartesianGrid vertical={false} />
@@ -108,8 +108,8 @@ export function DashBoard() {
         />
         <ChartTooltip content={<ChartTooltipContent />} />
         <ChartLegend content={<ChartLegendContent />} />
-        <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
-        <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
+        <Bar dataKey="clothes" fill="var(--color-clothes)" radius={4} />
+        <Bar dataKey="cosmetics" fill="var(--color-cosmetics)" radius={4} />
       </BarChart>
 
       <Card className="flex flex-col">
@@ -131,7 +131,7 @@ export function DashBoard() {
                   dataKey="browser"
                   className="fill-background"
                   stroke="none"
-                  fontSize={12}
+                  fontSize={14}
                   formatter={(value) => chartConfig2[value]?.label}
                 />
               </Pie>
@@ -165,8 +165,8 @@ export function DashBoard() {
               <PolarAngleAxis dataKey="month" />
               <PolarGrid />
               <Radar
-                dataKey="desktop"
-                fill="var(--color-desktop)"
+                dataKey="clothes"
+                fill="var(--color-clothes)"
                 fillOpacity={0.6}
                 dot={{
                   r: 4,
@@ -178,10 +178,10 @@ export function DashBoard() {
         </CardContent>
         <CardFooter className="flex-col gap-2 text-sm">
           <div className="flex items-center gap-2 leading-none font-medium">
-            Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
+            Trending up by 4.8% this month <TrendingUp className="h-4 w-4" />
           </div>
           <div className="text-muted-foreground flex items-center gap-2 leading-none">
-            January - June 2025
+            Clothes on January - June 2025
           </div>
         </CardFooter>
       </Card>
