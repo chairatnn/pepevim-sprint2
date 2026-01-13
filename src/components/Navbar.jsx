@@ -3,11 +3,11 @@ import { FaUser } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
 export default function Navbar() {
   return (
-    <nav className="w-full h-18 bg-primary flex justify-start items-center text-center py-5 px-12 gap-4 text-(--text-primary)  shadow-lg border-b border-gray-600">
+    <nav className="w-full h-18 bg-primary flex justify-start items-center text-center py-5 px-12 gap-4 text-(--text-primary)  shadow-lg">
       <div className="logoContainer h-full">
-        <img src="logo-m.png" alt="logo" className="h-full" />
+        <img src="/logo-m.png" alt="logo" className="h-full" />
       </div>
-      <ul className="gap-6 mx-auto hidden md:flex">
+      <ul className=" mx-auto hidden md:flex">
         <li>
           <NavLink
             to="/"
@@ -57,7 +57,7 @@ export default function Navbar() {
         to="/login"
         end
         className={({ isActive }) =>
-          " h-full aspect-square text-white p-1" +
+          " h-full aspect-square text-white p-1 ml-auto md:ml-0" +
           (isActive ? " navlinkActive" : "")
         }
       >

@@ -10,24 +10,33 @@ import { SingupView } from "./views/SignupView.jsx";
 import PaymentView from "./views/PaymentView.jsx";
 import LoginView from "./views/LoginView.jsx";
 import { ContactView } from "./views/ContactView.jsx";
-import CollectionView from "./views/CollectionView.jsx";
+import CollectionView from "./views/Collection/CollectionView.jsx";
+import ProductView from "./views/Collection/ProductView.jsx";
+import ProductDetailView from "./views/Collection/ProductDetailView.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: (
+      <div className="min-h-screen flex justify-center items-center">
+        <h1 className="text-4xl">404 - Page Not Found </h1>
+      </div>
+    ),
     children: [
       {
         path: "/",
-        element: <Layout/>,
+        element: <Layout />,
         children: [
           { path: "/", element: <HomeView /> },
-          { path: "collection", element: <CollectionView/> },
-          { path: "about", element: <AboutUsView/> },
-          { path: "contact", element: <ContactView/> },
-          { path: "login", element: <LoginView/> },
-          { path: "signup", element: <SingupView/>},
-          { path: "payment", element: <PaymentView/> },
+          { path: "collection", element: <CollectionView /> },
+          { path: "collection/:id", element: <ProductView /> },
+          { path: "product/:id", element: <ProductDetailView /> },
+          { path: "about", element: <AboutUsView /> },
+          { path: "contact", element: <ContactView /> },
+          { path: "login", element: <LoginView /> },
+          { path: "signup", element: <SingupView /> },
+          { path: "payment", element: <PaymentView /> },
         ],
       },
     ],

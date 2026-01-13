@@ -3,7 +3,7 @@ import React from 'react'
 
 export const ContactView = () => {
   return (
-    <section className='w-full py-20 bg white flex justify-center'>
+    <section className='w-full py-2 bg white flex justify-center'>
         <div className='max-w-2xl w-full px-6 text-center'>
             <h2 className='text-4xl font-light mb-2 mt-7'>Get In Touch!</h2>
             <h3 className='text-5xl font-extralight mb-6'>We'd Love to Hear From You</h3>
