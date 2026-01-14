@@ -13,6 +13,8 @@ import { ContactView } from "./views/ContactView.jsx";
 import CollectionView from "./views/Collection/CollectionView.jsx";
 import ProductView from "./views/Collection/ProductView.jsx";
 import ProductDetailView from "./views/Collection/ProductDetailView.jsx";
+import ConfirmOrderView from "./views/ConfirmOrderView.jsx";
+import DashBoardView from "./views/DashBoardView.jsx";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +39,8 @@ const router = createBrowserRouter([
           { path: "login", element: <LoginView /> },
           { path: "signup", element: <SingupView /> },
           { path: "payment", element: <PaymentView /> },
+          { path: "order", element: <ConfirmOrderView /> },
+          { path: "dashboard", element: <DashBoardView/> },
         ],
       },
     ],

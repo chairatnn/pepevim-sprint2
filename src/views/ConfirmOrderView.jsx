@@ -1,5 +1,5 @@
-export default function PaymentView() {
-  return () => {
+export default function ConfirmOrderView() {
+  return (
     <div className="grid grid-cols-2 p-9">
       <div className="border-r-2 border-black flex flex-col gap-6 p-8">
         <div className="flex flex-col p-2">
@@ -142,6 +142,6 @@ export default function PaymentView() {
           </button>
         </div>
       </div>
-    </div>;
-  };
+    </div>
+  )
 }
