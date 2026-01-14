@@ -200,4 +200,4 @@ export function DashBoardView() {
     </ChartContainer>
   );
 }
-// export default DashBoard;
+export default DashBoardView;
