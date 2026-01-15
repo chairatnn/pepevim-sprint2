@@ -4,7 +4,7 @@ import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 import Sigup1 from "../assets/img/sigup1.png";
 import Sigup2 from "../assets/img/sigup2.png";
 import { useNavigate } from "react-router";
-import { register } from "../services/auth";
+import { register, login } from "../services/auth";
 
 export const SingupView = () => {
   const navigate = useNavigate();
@@ -64,13 +64,19 @@ export const SingupView = () => {
     // 2️⃣ call service
     const result = await register(formData);
 
+
     // 3️⃣ handle result
     if (!result.success) {
       setErrors({ form: result.message });
       return;
     }
 
-    navigate("/login");
+    await login({
+      email: formData.email,
+      password: formData.password,
+    });
+
+    navigate("/");
   };
 
   return (
