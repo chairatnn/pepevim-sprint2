@@ -67,3 +67,20 @@ export const login = async ({ email, password }) => {
     };
   }
 };
+
+export const logout = async () => {
+  try {
+    await axios.post(
+      `${API_URL}/api/v2/auth/logout`,
+      {},
+      {
+        withCredentials: true,
+      }
+    );
+
+    return { success: true };
+  } catch (error) {
+    console.log("logout error", error);
+    return { success: false };
+  }
+};
