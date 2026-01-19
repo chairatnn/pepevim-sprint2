@@ -132,5 +132,5 @@ export default function ConfirmOrderView() {
         </div>
       </div>
     </div>
-  );
+  )
 }
