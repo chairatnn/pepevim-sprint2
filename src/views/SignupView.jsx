@@ -44,7 +44,11 @@ export const SingupView = () => {
     <div className="w-full min-h-screen grid grid-cols-3">
       {/* LEFT IMAGE */}
       <div className="h-screen w-full overflow-hidden">
-        <img src={Sigup1} alt="signup-left" className="w-full h-full object-cover" />
+        <img
+          src={Sigup1}
+          alt="signup-left"
+          className="w-full h-full object-cover"
+        />
       </div>
 
       {/* FORM */}
@@ -86,9 +90,7 @@ export const SingupView = () => {
 
           {/* Email */}
           <div className="border-b border-gray-300">
-            <label className="text-[#C6C6C6] text-sm mt-4 block">
-              Email
-            </label>
+            <label className="text-[#C6C6C6] text-sm mt-4 block">Email</label>
             <input
               type="email"
               name="email"
@@ -167,7 +169,11 @@ export const SingupView = () => {
 
       {/* RIGHT IMAGE */}
       <div className="h-screen w-full overflow-hidden">
-        <img src={Sigup2} alt="signup-right" className="w-full h-full object-cover" />
+        <img
+          src={Sigup2}
+          alt="signup-right"
+          className="w-full h-full object-cover"
+        />
       </div>
     </div>
   );
