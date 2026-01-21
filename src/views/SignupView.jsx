@@ -1,13 +1,19 @@
 import React, { useState } from "react";
-import { FcGoogle } from "react-icons/fc";
+// import { FcGoogle } from "react-icons/fc";
 import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 import Sigup1 from "../assets/img/sigup1.png";
 import Sigup2 from "../assets/img/sigup2.png";
 import { useNavigate } from "react-router";
 import { register, login } from "../services/auth";
 
+import { useAuth } from "../contexts/AuthContext";
+
 export const SignupView = () => {
   const navigate = useNavigate();
+  const { checkAuth } = useAuth();
+
+  const [isLoading, setIsLoading] = useState(false);
+
   const [formData, setFormData] = useState();
   const [value, setValue] = useState({
     first_name: "",
@@ -59,23 +65,31 @@ export const SignupView = () => {
       setErrors({ password: "Password does not match" });
       return;
     }
+    setIsLoading(true);
 
-    console.log("🚀 ~ hdlSubmit ~ formData:", formData);
-    // 2️⃣ call service
-    const result = await register(formData);
+    try {
+      const result = await register(formData);
+      if (!result.success) {
+        setErrors({ form: result.message });
+        return;
+      }
 
-    // 3️⃣ handle result
-    if (!result.success) {
-      setErrors({ form: result.message });
-      return;
+      const resultLogin = await login({
+        email: formData.email,
+        password: formData.password,
+      });
+      if (!resultLogin.success) {
+        setErrors({ form: resultLogin.message });
+        return;
+      }
+
+      const user = await checkAuth();
+      navigate(user.role === "admin" ? "/dashboard" : "/");
+    } catch (error) {
+      setErrors({ form: error.message || "somthing went wrong" });
+    } finally {
+      setIsLoading(false);
     }
-
-    await login({
-      email: formData.email,
-      password: formData.password,
-    });
-
-    navigate("/");
   };
 
   return (
@@ -193,11 +207,12 @@ export const SignupView = () => {
 
           {/* SUBMIT */}
           <button
+            disabled={isLoading}
             type="submit"
             className="bg-[#CB5585] text-white rounded-full py-2 mt-6 hover:opacity-70
             hover:cursor-pointer"
           >
-            Create account
+            {isLoading ? "Creating..." : "Create account"}
           </button>
 
           {/* GOOGLE
