@@ -15,7 +15,6 @@ import ProductView from "./views/Collection/ProductView.jsx";
 import ProductDetailView from "./views/Collection/ProductDetailView.jsx";
 import ConfirmOrderView from "./views/ConfirmOrderView.jsx";
 import DashBoardView from "./views/DashBoardView.jsx";
-// import Testpang from "./views/Testpang.jsx";
 import { AuthProvider } from "./contexts/AuthContext.jsx";
 import ProtectRoute from "./components/ProtectRoute.jsx";
 import GuestRoute from "./components/GuestRoute.jsx";
@@ -39,7 +38,7 @@ const router = createBrowserRouter([
           { path: "collection", element: <CollectionView /> },
           { path: "collection/:id", element: <ProductView /> },
           { path: "products/:id", element: <ProductDetailView /> },
-          { path: "dashboard", element: <DashBoardView /> },
+          // { path: "dashboard", element: <DashBoardView /> },
           { path: "about", element: <AboutUsView /> },
           { path: "contact", element: <ContactView /> },
           {
@@ -60,7 +59,17 @@ const router = createBrowserRouter([
           },
           { path: "payment", element: <PaymentView /> },
           { path: "order", element: <ConfirmOrderView /> },
-          { path: "dashboard", element: <DashBoardView /> },
+
+          
+          // 🔐 ADMIN ZONE
+          {
+            path: "dashboard",
+            element: (
+              <ProtectRoute role="admin">
+                <DashBoardView />
+              </ProtectRoute>
+            ),
+          },
           { path: "checkout", element: <ConfirmOrderView /> },
           { path: "profile", element: <ProfilePage /> },
         ],

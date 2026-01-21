@@ -53,7 +53,7 @@ export default function ProfileOverview() {
         <h2 className="text-2xl font-semibold">My Profile</h2>
         {!editMode && (
           <button
-            className="text-sm px-4 py-1 border rounded"
+            className="text-sm px-4 py-1 border hover:bg-gray-100 rounded hover:cursor-pointer"
             onClick={() => setEditMode(true)}
           >
             Edit
@@ -101,14 +101,14 @@ export default function ProfileOverview() {
       {editMode ? (
         <div className="flex gap-3">
           <button
-            className="px-4 py-2 bg-black text-white rounded hover:cursor-pointer"
+            className="px-4 py-2 bg-black hover:bg-gray-500 text-white rounded hover:cursor-pointer"
             onClick={handleSave}
             disabled={saving}
           >
             {saving ? "Saving..." : "Save"}
           </button>
           <button
-            className="px-4 py-2 border rounded hover:cursor-pointer"
+            className="px-4 py-2 border rounded hover:cursor-pointer hover:bg-gray-100"
             onClick={() => setEditMode(false)}
           >
             Cancel
