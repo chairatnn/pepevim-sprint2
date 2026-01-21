@@ -15,10 +15,8 @@ import ProductView from "./views/Collection/ProductView.jsx";
 import ProductDetailView from "./views/Collection/ProductDetailView.jsx";
 import ConfirmOrderView from "./views/ConfirmOrderView.jsx";
 import DashBoardView2 from "./views/DashBoardView2.jsx";
-import Testpang from "./views/Testpang.jsx";
 import CartPage from "./views/CartPage.jsx";
 import { AuthProvider } from "./contexts/AuthContext.jsx";
-import ProtectRoute from "./components/ProtectRoute.jsx";
 import GuestRoute from "./components/GuestRoute.jsx";
 import ProfilePage from "./views/ProfilePage.jsx";
 
@@ -61,18 +59,10 @@ const router = createBrowserRouter([
           },
           { path: "payment", element: <PaymentView /> },
           { path: "order", element: <ConfirmOrderView /> },
-          { path: "dashboard", element: <DashBoardView2 /> },
+
           { path: "checkout", element: <ConfirmOrderView /> },
           { path: "profile", element: <ProfilePage /> },
           { path: "carttest", element: <CartPage /> },
-          {
-            path: "pang-test",
-            element: (
-              <ProtectRoute>
-                <Testpang />
-              </ProtectRoute>
-            ),
-          },
         ],
       },
     ],
