@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FcGoogle } from "react-icons/fc";
+// import { FcGoogle } from "react-icons/fc";
 import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Dog from "../assets/img/dog.png";
@@ -150,7 +150,7 @@ function LoginView() {
             >
               Login
             </button>
-{/* 
+            {/* 
             <button
               type="button"
               className="flex items-center justify-center gap-2 bg-[#E8E8E8] rounded-full py-2 hover:opacity-70 hover:cursor-pointer"
