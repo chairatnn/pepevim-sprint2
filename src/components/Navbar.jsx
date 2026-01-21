@@ -1,6 +1,8 @@
 import { FaCartShopping } from "react-icons/fa6";
-import { FaUser } from "react-icons/fa6";
+
 import { NavLink } from "react-router-dom";
+import ButtonAccount from "../components/ButtonAccount";
+
 import { CartIcon } from "./CartIcon";
 export default function Navbar() {
   return (
@@ -31,7 +33,7 @@ export default function Navbar() {
             COLLECTION
           </NavLink>
         </li>
-          <li>
+        <li>
           <NavLink
             to="/dashboard"
             end
@@ -65,16 +67,9 @@ export default function Navbar() {
           </NavLink>
         </li>
       </ul>
-      <NavLink
-        to="/login"
-        end
-        className={({ isActive }) =>
-          " h-full aspect-square text-white p-1 ml-auto md:ml-0" +
-          (isActive ? " navlinkActive" : "")
-        }
-      >
-        <FaUser className="w-[95%] h-[95%]" />
-      </NavLink>
+
+      <ButtonAccount />
+
       <NavLink
         to="/payment"
         end
