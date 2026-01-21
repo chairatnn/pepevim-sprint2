@@ -15,7 +15,8 @@ import ProductView from "./views/Collection/ProductView.jsx";
 import ProductDetailView from "./views/Collection/ProductDetailView.jsx";
 import ConfirmOrderView from "./views/ConfirmOrderView.jsx";
 import DashBoardView from "./views/DashBoardView.jsx";
-// import Testpang from "./views/Testpang.jsx";
+import Testpang from "./views/Testpang.jsx";
+import CartPage from "./views/CartPage.jsx";
 import { AuthProvider } from "./contexts/AuthContext.jsx";
 import ProtectRoute from "./components/ProtectRoute.jsx";
 import GuestRoute from "./components/GuestRoute.jsx";
@@ -63,6 +64,15 @@ const router = createBrowserRouter([
           { path: "dashboard", element: <DashBoardView /> },
           { path: "checkout", element: <ConfirmOrderView /> },
           { path: "profile", element: <ProfilePage /> },
+          { path: "carttest", element: <CartPage /> },
+          {
+            path: "pang-test",
+            element: (
+              <ProtectRoute>
+                <Testpang />
+              </ProtectRoute>
+            ),
+          },
         ],
       },
     ],
