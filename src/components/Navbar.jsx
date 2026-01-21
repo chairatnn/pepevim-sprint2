@@ -69,25 +69,13 @@ export default function Navbar() {
       </ul>
 
       <ButtonAccount />
-
       <NavLink
-        to="/payment"
+        to="/cart"
         end
         className={({ isActive }) =>
           " h-full aspect-square text-white p-1" +
           (isActive ? " navlinkActive" : "")
         }
-      >
-        <FaCartShopping className="w-full h-full" />
-      </NavLink>
-      <NavLink
-        to="/carttest"
-        end
-        className={({ isActive }) =>
-          " h-full aspect-square text-white p-1" +
-          (isActive ? " navlinkActive" : "")
-        }
-        
       >
         <CartIcon/>
       </NavLink>

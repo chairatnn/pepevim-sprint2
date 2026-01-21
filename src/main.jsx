@@ -61,7 +61,7 @@ const router = createBrowserRouter([
           { path: "order", element: <ConfirmOrderView /> },
           { path: "checkout", element: <ConfirmOrderView /> },
           { path: "profile", element: <ProfilePage /> },
-          { path: "carttest", element: <CartPage /> },
+          { path: "cart", element: <CartPage /> },
         ],
       },
     ],

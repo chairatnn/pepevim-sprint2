@@ -19,7 +19,7 @@ const ButtonAccount = () => {
     setIsOpen(!isOpen);
   };
   return (
-    <div className="grid grid-cols-2">
+    <div className="">
       <div
         role="button"
         onMouseEnter={hdlHover}

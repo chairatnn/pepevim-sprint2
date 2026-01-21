@@ -34,16 +34,16 @@ export function CartProvider({ children }) {
     });
   };
 
-  const removeFromCart = (id) => {
-    setCart((prev) => prev.filter((item) => item._id !== id));
+  const removeFromCart = (id,size) => {
+    setCart((prev) => prev.filter((item) => !(item._id == id && item.size == size)));
   };
 
-  const updateQuantity = (id, qty) => {
-    if (qty <= 0) return removeFromCart(id);
+  const updateQuantity = (id, size,qty) => {
+    if (qty <= 0) return removeFromCart(id,size);
 
     setCart((prev) =>
       prev.map((item) =>
-        item._id === id ? { ...item, quantity: qty } : item
+        item._id === id && item.size === size ? { ...item, quantity: qty } : item
       )
     );
   };

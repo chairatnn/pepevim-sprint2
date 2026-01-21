@@ -28,18 +28,18 @@ export default function CartPage() {
 
               <div className="flex items-center gap-2">
                 <button
-                  onClick={() => updateQuantity(item._id, item.quantity - 1)}
+                  onClick={() => updateQuantity(item._id, item.size, item.quantity - 1)}
                 >
                   -
                 </button>
                 <span>{item.quantity}</span>
                 <button
-                  onClick={() => updateQuantity(item._id, item.quantity + 1)}
+                  onClick={() => updateQuantity(item._id, item.size, item.quantity + 1)}
                 >
                   +
                 </button>
                 <button
-                  onClick={() => removeFromCart(item._id)}
+                  onClick={() => removeFromCart(item._id,item.size)}
                   className="text-red-500"
                 >
                   ลบ
