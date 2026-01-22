@@ -1,18 +1,19 @@
 import React from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { Navigate } from "react-router-dom";
+import LoadingPage from "./LoadingPage";
 
 const GuestRoute = ({ children }) => {
-  const { user, loading } = useAuth();
+  const { user, Loading } = useAuth();
 
-  if (loading) {
-    return <div>...loading</div>;
+  if (Loading) {
+    return <LoadingPage />;
   }
 
   if (user) {
     return <Navigate to="/" replace />;
   }
-  
+
   return children;
 };
 
