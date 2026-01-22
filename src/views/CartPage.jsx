@@ -28,7 +28,7 @@ export default function CartPage() {
                 className="flex justify-between items-center border p-3 rounded"
               >
                 <div>
-                  <p className="font-semibold">{item.productName}</p>
+                  <p className="font-semibold">{item.productName} | size : {item.size}</p>
                   <p>{item.price} บาท</p>
                 </div>
 

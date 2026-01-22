@@ -1,7 +1,9 @@
 import CollectionCard from "@/components/CollectionCard";
 import Footer from "@/components/Footer";
+import { useCollection } from "@/Hooks/useCollection";
 
 export default function CollectionView() {
+  const { collection, loading } = useCollection();
   return (
     <>
       <section className="collect-view py-8 md:px-16 flex flex-col items-center gap-4 justify-center pt-12 text-center">
@@ -10,13 +12,14 @@ export default function CollectionView() {
           Shop now for the trendiest, most-loved dog products in one place.
         </h2>
         <div className="collection-bento w-8/10 md:w-fit grid md:grid-cols-3 gap-8 pt-8">
-          {/* เอาไว้loop คอลเล็คชั่นทั้งหมด */}
-          <CollectionCard className={"aspect-square"} id={1} />
-          <CollectionCard className={"aspect-square"} id={2} />
-          <CollectionCard className={"aspect-square"} id={3} />
-          <CollectionCard className={"aspect-square"} id={4} />
-          <CollectionCard className={"aspect-square"} id={5} />
-          <CollectionCard className={"aspect-square"} id={6} />
+          {collection.map((collection) => (
+            <CollectionCard
+              key={collection._id}
+              product={collection}
+              className={"aspect-square"}
+              id={collection._id}
+            />
+          ))}
         </div>
       </section>
       <Footer />

@@ -1,8 +1,13 @@
 import CollectionCard from "@/components/CollectionCard";
 import Footer from "@/components/Footer";
+import ProductCard from "@/components/ProductCard";
 import Timer from "@/components/Timer";
+import { useCollection } from "@/Hooks/useCollection";
+import { useProducts } from "@/Hooks/useProducts";
 
 export default function HomeView() {
+  const { products } = useProducts();
+  const { collection } = useCollection();
   return (
     <>
       <section className="Banner">
@@ -45,30 +50,17 @@ export default function HomeView() {
       <section className="New-collection w-full h-fit px-16  flex flex-col justify-start items-center py-8 gap-6">
         <h1 className="text-5xl font-bold">New Collection</h1>
         <div className="item-container w-full flex justify-center gap-4">
-          <CollectionCard className="md:h-100" id={1}/>
-          <CollectionCard className="md:h-100" id={2}/>
-          <CollectionCard className="md:h-100" id={3}/>
+          {collection.slice(0, 3).map((collection) => (
+            <CollectionCard key={collection._id} product={collection} className="md:h-100"id={collection._id} />
+          ))}
         </div>
       </section>
       <section className="Collection h-full flex flex-col items-center p-12">
         <h1 className="text-5xl font-bold pb-4">Other Collection</h1>
         <div className="grid md:grid-cols-2 m-4 gap-16">
-          <div className="Item w-64 h-auto">
-            <img src="other-collection.webp" alt="dog" class="w-full" />
-            <h2 className="mt-2 font-semibold">Collection One</h2>
-          </div>
-          <div className="Item w-64 h-auto">
-            <img src="other-collection.webp" alt="dog" class="w-full" />
-            <h2 className="mt-2 font-semibold">Collection Two</h2>
-          </div>
-          <div className="Item w-64 h-auto">
-            <img src="other-collection.webp" alt="dog" class="w-full" />
-            <h2 className="mt-2 font-semibold">Collection Three</h2>
-          </div>
-          <div className="Item w-64 h-auto">
-            <img src="other-collection.webp" alt="dog" class="w-full" />
-            <h2 className="mt-2 font-semibold">Collection Four</h2>
-          </div>
+          {products.slice(0, 4).map((product) => (
+            <ProductCard key={product._id} product={product} />
+          ))}
         </div>
       </section>
       <Footer />
