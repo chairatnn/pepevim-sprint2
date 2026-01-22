@@ -34,9 +34,7 @@ export default function HomeView() {
       before:w-64 before:bg-primary
       before:-skew-x-12"
         />
-        <div
-          className="relative z-10 ml-auto h-fullw-full md:w-[60%] flex flex-col justify-center items-start md:items-end px-6 sm:px-10 md:px-12 lg:pr-28 text-white text-left md:text-right"
-        >
+        <div className="relative z-10 ml-auto h-fullw-full md:w-[60%] flex flex-col justify-center items-start md:items-end px-6 sm:px-10 md:px-12 lg:pr-28 text-white text-left md:text-right">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-4 md:mb-6 pt-8 md:mt-16">
             Special Limited
             <br />
@@ -62,24 +60,19 @@ export default function HomeView() {
         <div className="item-container w-full flex flex-col md:flex-row justify-center gap-4">
           {collection.slice(0, 3).map((collection) => (
             <CollectionCard
-             
               key={collection._id}
-             
-             
+              product={collection}
               className="h-60 md:h-100"
-              
               id={collection._id}
-              image={collection.image}
-           
               image={collection.image}
               collectionName={collection.collectionName}
             />
           ))}
         </div>
       </section>
-      <section className="Collection h-full flex flex-col items-center p-20 bg-[#faf8f9]">
-        <h1 className="text-5xl font-bold pb-16 tracking-wide">
-          Other Collection
+      <section className="Collection h-full flex flex-col items-center p-6 md:p-20 bg-[#faf8f9]">
+        <h1 className="text-5xl font-bold pb-4 md:pb-16 tracking-wide">
+          Other Products
         </h1>
 
         <div className="grid md:grid-cols-2 gap-16">
