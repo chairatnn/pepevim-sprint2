@@ -12,44 +12,51 @@ export default function CartPage() {
   return (
     <div>
       <h1 className="text-8xl font-bold p-20">Cart</h1>
-      <div className="flex gap-4">
-        <div className="max-w-xl mx-auto p-6 space-y-4">
-          {cart.length === 0 && <p>ไม่มีสินค้าในตะกร้า</p>}
+      <div className="flex">
+        <div className="w-2/3 flex flex-col gap-8">
+          <div className="flex justify-between border-b-2 border-black p-4 font-bold">
+            <h2>Product</h2>
+            <h2>Quanity</h2>
+            <h2>Total</h2>
+          </div>
+          <div className="max-w-xl mx-auto p-6 space-y-4">
+            {cart.length === 0 && <p>ไม่มีสินค้าในตะกร้า</p>}
 
-          {cart.map((item) => (
-            <div
-              key={item._id}
-              className="flex justify-between items-center border p-3 rounded"
-            >
-              <div>
-                <p className="font-semibold">{item.productName}</p>
-                <p>{item.price} บาท</p>
+            {cart.map((item) => (
+              <div
+                key={item._id}
+                className="flex justify-between items-center border p-3 rounded"
+              >
+                <div>
+                  <p className="font-semibold">{item.productName}</p>
+                  <p>{item.price} บาท</p>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => updateQuantity(item._id, item.quantity - 1)}
+                  >
+                    -
+                  </button>
+                  <span>{item.quantity}</span>
+                  <button
+                    onClick={() => updateQuantity(item._id, item.quantity + 1)}
+                  >
+                    +
+                  </button>
+                  <button
+                    onClick={() => removeFromCart(item._id)}
+                    className="text-red-500"
+                  >
+                    ลบ
+                  </button>
+                </div>
               </div>
+            ))}
 
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={() => updateQuantity(item._id, item.quantity - 1)}
-                >
-                  -
-                </button>
-                <span>{item.quantity}</span>
-                <button
-                  onClick={() => updateQuantity(item._id, item.quantity + 1)}
-                >
-                  +
-                </button>
-                <button
-                  onClick={() => removeFromCart(item._id)}
-                  className="text-red-500"
-                >
-                  ลบ
-                </button>
-              </div>
-            </div>
-          ))}
-
-          <hr />
-        </div>
+            <hr />
+          </div>
+        </div>{" "}
         <div className=" w-1/3 flex justify-center items-baseline">
           <div className="bg-[#C662A5] border-2 rounded-2xl flex flex-col justify-center items-center gap-8 p-6 w-7/9">
             <div className="flex justify-between w-full text-white font-bold text-xl">
