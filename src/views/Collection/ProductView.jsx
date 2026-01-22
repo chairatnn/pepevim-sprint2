@@ -1,22 +1,11 @@
 import Footer from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useProducts } from "@/Hooks/useProducts";
 
 export default function ProductView() {
+  const { products, loading } = useProducts();
 
-  const apibase = import.meta.env.VITE_API_URL;
-  const [products, setProduct] = useState([]);
-  const fetchProduct = async () => {
-    try {
-      const res = await axios.get(`${apibase}/api/v2/products`);
-      setProduct(res.data.data);
-    } catch (error) {}
-  };
-
-  useEffect(() => {
-    fetchProduct();
-  }, []);
+  if (loading) return <p>Loading...</p>;
   return (
     <div>
       <section className="collect-view py-8 md:px-16 flex flex-col items-center gap-4 justify-center pt-12 text-center">
