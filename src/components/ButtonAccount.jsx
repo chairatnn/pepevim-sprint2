@@ -1,25 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { FaUser } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
 
 const ButtonAccount = () => {
-  const { user, hdlLogout } = useAuth();
-  const [isOpen, setIsOpen] = useState(false);
-  const isOpenDropdown = user && isOpen;
-
-  const hdlHover = () => setIsOpen(true);
-  const hdlLeave = () => setIsOpen(false);
-  const hdlToggle = () => setIsOpen(!isOpen);
+  const { user } = useAuth();
 
   return (
     <div className="">
-      <div
-        role="button"
-        onMouseEnter={hdlHover}
-        onMouseLeave={hdlLeave}
-        className="relative flex items-center"
-      >
+      <div role="button" className="relative flex items-center">
         <NavLink
           to={user ? "/profile" : "/login"}
           className={`

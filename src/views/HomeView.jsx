@@ -34,9 +34,7 @@ export default function HomeView() {
       before:w-64 before:bg-primary
       before:-skew-x-12"
         />
-        <div
-          className="relative z-10 ml-auto h-fullw-full md:w-[60%] flex flex-col justify-center items-start md:items-end px-6 sm:px-10 md:px-12 lg:pr-28 text-white text-left md:text-right"
-        >
+        <div className="relative z-10 ml-auto h-fullw-full md:w-[60%] flex flex-col justify-center items-start md:items-end px-6 sm:px-10 md:px-12 lg:pr-28 text-white text-left md:text-right">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-4 md:mb-6 pt-8 md:mt-16">
             Special Limited
             <br />
@@ -67,6 +65,7 @@ export default function HomeView() {
               className="h-60 md:h-100"
               id={collection._id}
               image={collection.image}
+              collectionName={collection.collectionName}
             />
           ))}
         </div>

@@ -5,6 +5,7 @@ export default function CollectionCard({
   id,
   collection,
   image,
+  collectionName,
 }) {
   const navigate = useNavigate();
 
@@ -97,7 +98,7 @@ export default function CollectionCard({
             hover:cursor-pointer
           "
         >
-          SEE IT MORE
+         {collectionName}
         </button>
       </div>
     </div>
