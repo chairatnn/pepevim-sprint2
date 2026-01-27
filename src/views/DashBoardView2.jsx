@@ -91,7 +91,7 @@ export function DashBoardView() {
       <Card>
         <CardHeader>
           <CardTitle className="text-xl md:text-2xl">Sales Order Summary</CardTitle>
-          <CardDescription>การสรุปยอดขายแยกตามหมวดหมู่รายเดือน</CardDescription>
+          <CardDescription>Monthly sales summary by category</CardDescription>
         </CardHeader>
         <CardContent>
           <ChartContainer config={salesConfig} className="aspect-auto h-75 md:h-120 w-full">
@@ -117,7 +117,7 @@ export function DashBoardView() {
       <Card className="flex flex-col">
         <CardHeader className="items-center pb-0">
           <CardTitle>Collections Trends</CardTitle>
-          <CardDescription>สัดส่วนยอดสั่งซื้อตาม Collection</CardDescription>
+          <CardDescription>Proportion of orders by Collection</CardDescription>
         </CardHeader>
         <CardContent className="flex-1 pb-0">
           <ChartContainer
@@ -148,10 +148,10 @@ export function DashBoardView() {
         </CardContent>
         <CardFooter className="flex-col gap-2 text-sm text-center">
           <div className="flex items-center gap-2 leading-none font-medium">
-            มีแนวโน้มเติบโตขึ้น 5.2% ในเดือนนี้ <TrendingUp className="h-4 w-4 text-emerald-500" />
+            Projected to grow by 5.2% this month <TrendingUp className="h-4 w-4 text-emerald-500" />
           </div>
           <div className="text-muted-foreground leading-none">
-            แสดงข้อมูลคอลเลกชันยอดนิยม 6 เดือนย้อนหลัง
+            Displays top collection data from the past 6 months
           </div>
         </CardFooter>
       </Card>

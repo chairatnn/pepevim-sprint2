@@ -40,22 +40,6 @@ export default function Navbar() {
               COLLECTION
             </NavLink>
           </li>
-
-          {/* dashboard */}
-          {isUser && (
-            <li>
-              <NavLink
-                to="/dashboard"
-                end
-                className={({ isActive }) =>
-                  "p-6" + (isActive ? " navlinkActive" : "")
-                }
-              >
-                BEST SELLER
-              </NavLink>
-            </li>
-          )}
-
           <li>
             <NavLink
               to="/about"
@@ -78,6 +62,18 @@ export default function Navbar() {
               CONTACT
             </NavLink>
           </li>
+          {/* dashboard */}
+            <li>
+              <NavLink
+                to="/dashboard"
+                end
+                className={({ isActive }) =>
+                  "p-6" + (isActive ? " navlinkActive" : "")
+                }
+              >
+                SALES TREND
+              </NavLink>
+            </li>
         </ul>
         <div className="ml-auto flex items-center gap-3">
           <ButtonAccount />
@@ -123,20 +119,6 @@ export default function Navbar() {
               COLLECTION
             </NavLink>
           </li>
-
-          {isUser && (
-            <li>
-              <NavLink
-                to="/dashboard"
-                end
-                className={navLinkClass}
-                onClick={() => setOpen(false)}
-              >
-                BEST SELLER
-              </NavLink>
-            </li>
-          )}
-
           <li>
             <NavLink
               to="/about"
@@ -157,6 +139,17 @@ export default function Navbar() {
               CONTACT
             </NavLink>
           </li>
+
+            <li>
+              <NavLink
+                to="/dashboard"
+                end
+                className={navLinkClass}
+                onClick={() => setOpen(false)}
+              >
+                SALES TREND
+              </NavLink>
+            </li>
         </ul>
       )}
     </>
